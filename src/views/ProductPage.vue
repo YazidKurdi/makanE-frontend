@@ -9,10 +9,10 @@
     <div class="p-8">
       <div class="flex flex-wrap items-start justify-between">
         <div class="flex flex-col space-y-3">
-          <h1 class="text-2xl text-lightWhite-50">{{ item.name }}</h1>
-          <p class="text-lg text-lightWhite-100">{{ item.description }}</p>
+          <h1 class="text-2xl text-lightWhite-100">{{ item.name }}</h1>
+          <p class="text-lg text-lightWhite-50">{{ item.description }}</p>
         </div>
-        <div class="flex flex-col justify-start text-lightWhite-50 mt-2">
+        <div class="flex flex-col justify-start text-lightWhite-100 mt-2">
           <p>{{ item.price }} JD</p>
         </div>
       </div>

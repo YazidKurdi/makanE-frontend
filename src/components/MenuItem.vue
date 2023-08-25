@@ -28,7 +28,7 @@ const span = computed(() => (!props.entireDivRouterLink ? 'router-link' : 'span'
 
 const routerLinkProps = computed(() => ({
   name: 'product',
-  params: { productName: props.menuItem.name.toLowerCase().replace(/\s+/g, '-') },
+  params: { slug: props.menuItem.name.toLowerCase().replace(/\s+/g, '-') },
 }));
 
 </script>
