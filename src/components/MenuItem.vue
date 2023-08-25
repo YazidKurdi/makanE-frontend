@@ -16,6 +16,8 @@
 <script setup>
 import { defineProps, computed } from 'vue';
 
+
+// Router-link or whole component or on span, along with conditional underline style
 const props = defineProps({
   menuItem: Object,
   entireDivRouterLink: Boolean,

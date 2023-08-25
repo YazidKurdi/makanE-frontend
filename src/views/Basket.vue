@@ -153,25 +153,27 @@ import router from '../router';
 
 const basketStore = useBasketStore();
 
+// get basket from local storage and convert it to a reactive object
 const basketLocalStorage = JSON.parse(localStorage.getItem('cart'))
-
 const basketState = reactive({
     items: basketLocalStorage,
 });
 
-// Assuming menuItem is passed as a parameter to these functions
+
 const incrementQuantity = (menuItem) => {
     basketStore.incrementQuantity(menuItem.name);
-    menuItem.quantity++; // Update locally in the reactive object
+    menuItem.quantity++; 
 };
 
 const decrementQuantity = (menuItem) => {
     basketStore.decrementQuantity(menuItem.name);
-    menuItem.quantity--; // Update locally in the reactive object
+    menuItem.quantity--; 
 };
 
+// reactive object used to activate animation
 const active = ref(false);
 
+// display animation, clear cart and local storage and route to landing page
 const checkout = () => {
     active.value = true;
     basketStore.clearCartAndStorage()

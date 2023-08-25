@@ -54,18 +54,19 @@ const item = ref({});
 
 const basketStore = useBasketStore();
 
+// Get item data using route params
 onMounted(async () => {
   const productName = route.params.productName;
 
   try {
     const response = await axios.get(`/api/menu-items/${productName}/`);
-    console.log(response)
     item.value = response.data;
   } catch (error) {
     console.error('Error fetching item data:', error);
   }
 });
 
+// counter quantity
 const quantity = ref(1)
 
 const incrementQuantity = () => {
@@ -78,13 +79,14 @@ const decrementQuantity = () => {
   }
 }
 
+// total price used in "add to basket" button
 const totalPrice = computed(() => {
   if (item.value.price !== undefined) {
     return (item.value.price * quantity.value).toFixed(2);
   }
-  return 0; // Or any default value if item.value.price is undefined.
+  return 0
 });
-
+// update basket with cart item
 const updateCartItem = (name, quantity, price, image) => {
   basketStore.updateCartItem({ name, quantity, price, image });
   router.push('/');

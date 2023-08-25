@@ -178,13 +178,10 @@ import MenuItem from "../components/MenuItem.vue";
 
 const basketStore = useBasketStore();
 
+
+
+// get menu items from backend
 const menuItemsList = ref({});
-
-// Define refs for event listeners
-const menuItems = ref([]);
-const accordionDivs = ref([]);
-const headings = ref([]);
-
 
 const getMenu = async () => {
 
@@ -197,6 +194,12 @@ const getMenu = async () => {
     }
 }
 
+// Define refs for event listeners
+const menuItems = ref([]);
+const accordionDivs = ref([]);
+const headings = ref([]);
+
+// retrieve menu items, initialize accordion, and attach event listeners on menu navbar to trigger accordion
 onMounted(async () => {
 
     await getMenu()
@@ -211,7 +214,7 @@ onMounted(async () => {
         menuItem.addEventListener("click", () => {
             const accordionDiv = accordionDivs.value[index];
             const heading = headings.value[index];
-            const button = heading.querySelector("button"); // Replace with the actual class name of the button
+            const button = heading.querySelector("button");
             const isHidden = accordionDiv.classList.contains("hidden");
             
             if (isHidden) {
@@ -231,7 +234,7 @@ onMounted(async () => {
 });
 
 
-
+// active tab reference in order to border bottom red
 const activeTab = ref("");
 
 function setActiveTab(tabName) {

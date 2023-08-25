@@ -17,7 +17,7 @@ import { faLocationDot,faAngleDown,faUser,faSearch,faArrowRight,faArrowLeft,faMi
 /* add icons to the library */
 library.add(faLocationDot,faAngleDown,faUser,faSearch,faArrowRight,faArrowLeft,faMinus,faPlus, faShoppingBag,faShippingFast,faCoins,faTimesCircle)
 
-axios.defaults.baseURL = "http://127.0.0.1:8000"
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_API || "http://127.0.0.1:8000"
 
 const pinia = createPinia()
 

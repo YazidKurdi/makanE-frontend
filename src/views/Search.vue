@@ -41,18 +41,15 @@
   
 <script setup>
 import { ref } from 'vue';
-import { debounce } from 'lodash'; // Import debounce function from lodash
+import { debounce } from 'lodash'
 import router from '../router';
 import axios from 'axios';
 import MenuItem from '../components/MenuItem.vue';
 
-
+// return search query items activated with a delay of 0.5 seconds after user stops typing, enables/disables loading
 const searchQuery = ref('');
-
 const isLoading = ref(false);
-
 const menuItemsList = ref([]);
-
 const responseEmpty = ref(false);
 
 const debouncedSearch = debounce(async () => {
@@ -70,7 +67,7 @@ const debouncedSearch = debounce(async () => {
     isLoading.value = false;
 }, 500); // Wait for 1 second after user stops typing
 
-
+// clear search query
 const clearView = () => {
     searchQuery.value = '';
     menuItemsList.value = [];
