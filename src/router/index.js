@@ -20,7 +20,7 @@ const routes = [
     meta: { title: 'Register' }
   },
   {
-    path: '/products/:productName',
+    path: '/products/:slug',
     name: 'product',
     component: ProductPage,
     meta: { title: 'Product' }

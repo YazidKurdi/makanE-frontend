@@ -56,10 +56,10 @@ const basketStore = useBasketStore();
 
 // Get item data using route params
 onMounted(async () => {
-  const productName = route.params.productName;
+  const slug = route.params.slug;
 
   try {
-    const response = await axios.get(`/api/menu-items/${productName}/`);
+    const response = await axios.get(`/api/menu-items/${slug}/`);
     item.value = response.data;
   } catch (error) {
     console.error('Error fetching item data:', error);
