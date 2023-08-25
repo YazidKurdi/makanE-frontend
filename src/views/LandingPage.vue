@@ -90,7 +90,7 @@
         <img src="../assets/shawerma.gif">
     </div>
     <!-- Accordion -->
-    <div id="accordion-collapse" data-active-classes="bg-blackGrey-100 text-lightRed border-lightRed" data-accordion="open"
+    <div id="accordion-collapse" data-active-classes="bg-blackGrey-100 !text-lightRed !border-lightRed" data-accordion="open"
         class="flex flex-col space-y-6 px-5 py-8">
         <div v-for="(section, index) in menuItemsList" :key="index">
             <h2 :id="'accordion-collapse-heading-' + (index + 1)" class="text-lightWhite-50">
@@ -224,8 +224,8 @@ onMounted(async () => {
 
             // Toggle the accordion visibility and button classes
             accordionDiv.classList.toggle("hidden");
-            button.classList.toggle("border-lightRed");
-            button.classList.toggle("text-lightRed");
+            button.classList.toggle("!border-lightRed");
+            button.classList.toggle("!text-lightRed");
 
 
         });
