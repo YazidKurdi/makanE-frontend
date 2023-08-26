@@ -175,8 +175,9 @@ const decrementQuantity = (menuItem) => {
         }
     } else {
         basketStore.decrementQuantity(menuItem.name);
-        menuItem.quantity--;
+        
     }
+    menuItem.quantity--;
 };
 
 // reactive object used to activate animation
