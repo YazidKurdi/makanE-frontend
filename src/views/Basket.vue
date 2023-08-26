@@ -162,12 +162,21 @@ const basketState = reactive({
 
 const incrementQuantity = (menuItem) => {
     basketStore.incrementQuantity(menuItem.name);
-    menuItem.quantity++; 
+    menuItem.quantity++;
 };
 
 const decrementQuantity = (menuItem) => {
-    basketStore.decrementQuantity(menuItem.name);
-    menuItem.quantity--; 
+    if (menuItem.quantity === 1) {
+        const userConfirmed = window.confirm("Are you sure you want to remove this item?");
+
+        if (userConfirmed) {
+            basketStore.removeItem(menuItem.name);
+            basketState.items = basketState.items.filter(item => item.name !== menuItem.name);
+        }
+    } else {
+        basketStore.decrementQuantity(menuItem.name);
+        menuItem.quantity--;
+    }
 };
 
 // reactive object used to activate animation
@@ -180,7 +189,7 @@ const checkout = () => {
     setTimeout(() => {
         active.value = false;
         router.push("/")
-    },6000)
+    }, 6000)
 };
 
 </script>
@@ -704,4 +713,5 @@ $basepx: 16px;
         transform: scale(1);
         opacity: 1;
     }
-}</style>
+}
+</style>
