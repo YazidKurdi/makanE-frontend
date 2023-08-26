@@ -39,8 +39,8 @@ export const useBasketStore = defineStore('basket', {
                 localStorage.setItem('cart', JSON.stringify(this.items));
             }
         },
-        removeItem(itemId) {
-            this.items = this.items.filter(item => item.id !== itemId);
+        removeItem(name) {
+            this.items = this.items.filter(i => i.name !== name);
             localStorage.setItem('cart', JSON.stringify(this.items));
         },
         initializeStore() {
